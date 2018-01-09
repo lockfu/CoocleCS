@@ -329,6 +329,7 @@ class CoursesController < ApplicationController
   #-------------------------new add-------------------------------------
   def delCourseByCids
     cids = params[:cids]
+    # render :text=>"#{cids}"
     cidss = [];
     carids = cids.split(',');
     carids.each do |aa|

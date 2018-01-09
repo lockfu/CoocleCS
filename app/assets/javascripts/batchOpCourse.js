@@ -1,4 +1,5 @@
 function opCheckCourse(url){
+  //alert(url);
     var oids = document.getElementsByName("cids");
     var omasters = document.getElementsByName("master");
 
@@ -6,15 +7,17 @@ function opCheckCourse(url){
     var mresult = [];
 
     var count=0;
-    
+
     for(var i = 0;i<oids.length;i++){
       if (oids[i].checked) {
-
-        if(omasters[i].checked){
-          mresult[count] = 1;
-        }else{
-          mresult[count] = 0;
+        if(url.indexOf("delCourseByCids") == -1){
+          if(omasters[i].checked){
+            mresult[count] = 1;
+          }else{
+            mresult[count] = 0;
+          }
         }
+
         result[count++]=oids[i].value;
       }
 
@@ -37,7 +40,7 @@ function opCheckCourse(url){
       }
     }else{
        for(var i = 0;i<ocobjs.length;i++){
-        if(ocobjs[i].checked) 
+        if(ocobjs[i].checked)
          ocobjs[i].checked = "";
       }
     }
@@ -45,7 +48,7 @@ function opCheckCourse(url){
 
   function childchange(cobj){
     var ohdr = document.getElementById("hdr");
-    var ocobjs = document.getElementsByName("cids"); 
+    var ocobjs = document.getElementsByName("cids");
 
     var count = 0;
     if(cobj.checked){
