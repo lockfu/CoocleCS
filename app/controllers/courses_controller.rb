@@ -271,9 +271,9 @@ class CoursesController < ApplicationController
         limitNum = count >= @course.limit_num
       end
       if limitNum
-          errorresult += "======= #{@course.name} 人数已达上限 =>  #{@course.limit_num}"
+          errorresult += "======= #{@course.name} 人数已达上限 =>  #{@course.limit_num}  "
       elsif cousetimeinterfere(@course)
-        errorresult += "======  选课冲突: #{@course.name}"
+        errorresult += "======  选课冲突: #{@course.name}  "
       else
         current_user.courses<<@course
         count+=1
@@ -281,7 +281,7 @@ class CoursesController < ApplicationController
         isMasid = midss[ismascount]
         @grade[0].update_attributes(:ismas=>"#{isMasid}")
         @course=Course.find_by_id(cid)
-        correctresult += "成功选择课程: #{@course.name}"
+        correctresult += "==== 成功选择课程: #{@course.name}"
       end
 
       ismascount += 1
@@ -342,7 +342,7 @@ class CoursesController < ApplicationController
       count = (@course.student_num - 1)   # sub checknum
       @course.update_attributes(:student_num=>"#{count}")
       @course=Course.find_by_id(cid)
-      resultstr += "  #{@course.name}"
+      resultstr += "  #{@course.name},"
    end
    flash={:success => "#{resultstr}"}
    redirect_to courses_path, flash: flash
