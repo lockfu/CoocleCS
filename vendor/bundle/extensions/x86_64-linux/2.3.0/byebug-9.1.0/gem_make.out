@@ -1,0 +1,19 @@
+current directory: /home/lockjk/CoocleCS/vendor/bundle/gems/byebug-9.1.0/ext/byebug
+/usr/bin/ruby2.3 -r ./siteconf20180113-9502-n92rge.rb extconf.rb
+creating Makefile
+
+current directory: /home/lockjk/CoocleCS/vendor/bundle/gems/byebug-9.1.0/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /home/lockjk/CoocleCS/vendor/bundle/gems/byebug-9.1.0/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+
+current directory: /home/lockjk/CoocleCS/vendor/bundle/gems/byebug-9.1.0/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20180113-9502-p5fr6o/byebug

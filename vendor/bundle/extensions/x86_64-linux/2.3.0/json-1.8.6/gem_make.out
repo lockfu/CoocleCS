@@ -1,0 +1,13 @@
+current directory: /home/lockjk/CoocleCS/vendor/bundle/gems/json-1.8.6/ext/json
+/usr/bin/ruby2.3 -r ./siteconf20180113-9502-oel6q2.rb extconf.rb
+creating Makefile
+
+current directory: /home/lockjk/CoocleCS/vendor/bundle/gems/json-1.8.6/ext/json
+make "DESTDIR=" clean
+
+current directory: /home/lockjk/CoocleCS/vendor/bundle/gems/json-1.8.6/ext/json
+make "DESTDIR="
+make: Nothing to be done for 'all'.
+
+current directory: /home/lockjk/CoocleCS/vendor/bundle/gems/json-1.8.6/ext/json
+make "DESTDIR=" install

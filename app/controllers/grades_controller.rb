@@ -17,57 +17,64 @@ class GradesController < ApplicationController
   end
 
   def index
+    # if teacher_logged_in?
+    #   @course=Course.find_by_id(params[:course_id])
+    #   @grades=@course.grades
+    # elsif student_logged_in?
+    #   @grades=current_user.grades
+
     if teacher_logged_in?
-      @course=Course.find_by_id(params[:course_id])
-      @grades=@course.grades
+       @course = Course.find_by_id(params[:course_id])
+       @grades = @course.grades.order(created_at: "desc").paginate(page: params[:page], per_page: 4)
     elsif student_logged_in?
-      @grades=current_user.grades
+       @grades=current_user.grades.paginate(page: params[:page], per_page: 4)
     else
       redirect_to root_path, flash: {:warning=>"请先登陆"}
     end
   end
 
 
+
 # for student
   def downstudent
     @grades=current_user.grades
-    respond_to do |format|  
-      format.xls {   
-        send_data(xls_content_for(@grades),  
-                  :type => "text/excel;charset=utf-8; header=present",  
-                  :filename => "Grades_#{Time.now.to_date}.xls")  
-      }  
-      format.html  
-    end  
-  end  
+    respond_to do |format|
+      format.xls {
+        send_data(xls_content_for(@grades),
+                  :type => "text/excel;charset=utf-8; header=present",
+                  :filename => "Grades_#{Time.now.to_date}.xls")
+      }
+      format.html
+    end
+  end
 
 # for teacher
   def downteacher
-   
+
     cid = params[:cid]
     @grades=Grade.where(:course_id => "#{cid}")
-    respond_to do |format|  
-      format.xls {   
-        send_data(xls_content_for(@grades),  
-                  :type => "text/excel;charset=utf-8; header=present",  
-                  :filename => "Student_Grades_#{Time.now.to_date}.xls")  
-      }  
-      format.html  
-    end  
-  end  
+    respond_to do |format|
+      format.xls {
+        send_data(xls_content_for(@grades),
+                  :type => "text/excel;charset=utf-8; header=present",
+                  :filename => "Student_Grades_#{Time.now.to_date}.xls")
+      }
+      format.html
+    end
+  end
 
 def studentInfo
     cid = params[:cid]
     @grades=Grade.where(:course_id => "#{cid}")
-    respond_to do |format|  
-      format.xls {   
-        send_data(student_xls_content_for(@grades),  
-                  :type => "text/excel;charset=utf-8; header=present",  
-                  :filename => "Student_Informations_#{Time.now.to_date}.xls")  
-      }  
-      format.html  
-    end  
-  end  
+    respond_to do |format|
+      format.xls {
+        send_data(student_xls_content_for(@grades),
+                  :type => "text/excel;charset=utf-8; header=present",
+                  :filename => "Student_Informations_#{Time.now.to_date}.xls")
+      }
+      format.html
+    end
+  end
 
 
 
@@ -106,7 +113,7 @@ def studentInfo
         sheet1[crow,5]="暂无成绩"
       end
       crow = crow + 1
-    end 
+    end
   book.write xls_report
   xls_report.string
   end
@@ -130,7 +137,7 @@ def studentInfo
         sheet1[crow,4]=obj.user.department
         sheet1[crow,5]=obj.user.email
       crow = crow + 1
-    end 
+    end
   book.write xls_report
   xls_report.string
   end

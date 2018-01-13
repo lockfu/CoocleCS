@@ -1,0 +1,16 @@
+current directory: /home/lockjk/CoocleCS/vendor/bundle/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+/usr/bin/ruby2.3 -r ./siteconf20180113-9502-7eejj9.rb extconf.rb
+
+current directory: /home/lockjk/CoocleCS/vendor/bundle/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR=" clean
+make: *** No rule to make target 'clean'。 停止。
+
+current directory: /home/lockjk/CoocleCS/vendor/bundle/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR="
+echo "Nada."
+Nada.
+
+current directory: /home/lockjk/CoocleCS/vendor/bundle/gems/binding_of_caller-0.8.0/ext/binding_of_caller
+make "DESTDIR=" install
+echo "Nada."
+Nada.

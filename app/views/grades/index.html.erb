@@ -28,7 +28,7 @@
               <th>目前分数</th>
 
               <% if teacher_logged_in? %>
-              
+
               <th>
                <%= link_to "成绩表下载", downteacher_grades_url(:cid => "#{@grades[0].course_id}"),class: 'btn btn-xs btn-info' %></td>
               </th>
@@ -41,10 +41,10 @@
             <tbody>
 
             <% @grades.each do |grade| %>
-           
+
                 <tr>
                   <% if student_logged_in? %>
-                    <% if grade.grade != nil %> 
+                    <% if grade.grade != nil %>
                       <td><%= grade.user.num %></td>
                       <td><%= grade.user.name %></td>
                       <td><%= grade.user.major %></td>
@@ -68,13 +68,16 @@
                   <% end %>
 
                 </tr>
+
+
             <% end %>
             </tbody>
           </table>
+
+<%= will_paginate @grades %>
+
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
