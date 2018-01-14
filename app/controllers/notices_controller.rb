@@ -4,9 +4,5 @@ class NoticeController < ApplicationController
 		@notice = Notice.all
 	end
 
-	def show
-		render :text=>"eeeeeeeeeeeeeeeeeeee"
-	end
 
-	
 end

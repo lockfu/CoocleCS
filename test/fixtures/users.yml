@@ -9,3 +9,16 @@ peng:
   name: 彭兆卿
   email: admin@test.com
   password_digest: <%= User.digest('password') %>
+
+student1:
+  id: "1018932494"
+  name: 匡妙韦
+  email: student1@test.com
+  password_digest: <%= User.digest('password') %>
+
+teacher1:
+  id: 1
+  name: 胡伟武
+  department: 计算技术研究所
+  password_digest: <%= User.digest('password') %>
+  # courses: one

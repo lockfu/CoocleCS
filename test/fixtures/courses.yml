@@ -4,8 +4,36 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+one:
+  id: 2
+  course_code: "091M4001H"
+  name: "计算机体系结构"
+  course_type: "专业核心课"
+  credit: "60/3.0"
+  limit_num: "2"
+  course_week: "第2-20周"
+  course_time: "周一(9-11)"
+  class_room: "教1-107"
+  teaching_type: "课堂讲授为主"
+  exam_type: "闭卷笔试"
+  checknum: "1"
+  college_id: "2"
+  exam_date: "2018-01-09"
+  exam_time: "13:30"
+  exam_place: "教一"
+  teacher_id: "1"
+
+
+
+two:
+  id: 3
+  course_code: "091M4002H"
+  name: "计算机网络"
+  course_type: "专业核心课"
+  credit: "60/3.0"
+  limit_num: ""
+  course_week: "第2-20周	"
+  course_time: "周五(2-4)"
+  class_room: "教1-107"
+  teaching_type: "课堂讲授为主"
+  exam_type: "闭卷笔试"

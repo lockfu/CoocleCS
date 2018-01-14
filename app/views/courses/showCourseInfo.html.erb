@@ -13,6 +13,7 @@
         <center>
           <table>
             <tr>
+              <%begin%>
               <td>课程代号: </td>
               <td><%=@course.course_code%></td>
             </tr>
@@ -45,7 +46,7 @@
               <td><%=@course.exam_type%></td>
             </tr>
 
-            
+
             <tr>
               <td>考试日期：</td>
               <td><%=@course.exam_date%></td>
@@ -59,7 +60,11 @@
               <td><%=@course.exam_place%></td>
             </tr>
 
-
+            <%
+          rescue Exception => e
+              puts "select  " + e.message
+            end
+            %>
           </table>
           </center>
         </div>

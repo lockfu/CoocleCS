@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   root 'homes#index'
   resources :courses do
     member do
+      get :edit
       get :select
       get :quit
       get :open
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
       get :exam
       get :timetable
       get :showstudents
+      get :list1
     end
   end
   # get 'courses/downloadStuInfo'

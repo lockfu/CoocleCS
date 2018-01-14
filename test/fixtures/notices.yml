@@ -2,22 +2,11 @@
 
 one:
   title: MyString
-  not: MyString
-  'null': MyString
   date: MyString
-  not: MyString
-  'null': MyString
   isAddtional: 1
-  default: MyString
-  0: MyString
-
+  content: MyString
 two:
   title: MyString
-  not: MyString
-  'null': MyString
   date: MyString
-  not: MyString
-  'null': MyString
   isAddtional: 1
-  default: MyString
-  0: MyString
+  content: MyString

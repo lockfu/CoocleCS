@@ -7,9 +7,13 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
 
   test "homepage layout links" do
     get root_path
-    assert_template 'homes/index'
-    assert_select "a[href=?]", root_path, count: 2
-    assert_select "a[href=?]", "http://guides.ruby-china.org/"
-    assert_select "a[href=?]", "http://www.runoob.com/js/js-tutorial.html"
+    assert_response :redirect
+    assert_redirected_to controller: :homes, action: :index
+
+    # assert_template 'homes/index'
+
+    # assert_select "a[href=?]", root_path, count: 2
+    # assert_select "a[href=?]", "http://guides.ruby-china.org/"
+    # assert_select "a[href=?]", "http://www.runoob.com/js/js-tutorial.html"
   end
 end

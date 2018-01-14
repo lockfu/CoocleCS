@@ -1,5 +1,13 @@
 <center>
 <div style="width: 200px; height: 200px;marign :0 auto; text-align: center; border: 1px solid gray; font-size: 20px; ">
-  <p style="color: yellow;"><%= @notice.content%></p>
+  <p style="color: yellow;">
+    <% begin%>
+    <%= @notice.content%>
+    <%
+  rescue Exception => e
+    puts "select  " + e.message
+  end
+    %>
+  </p>
 </div>
 </center>

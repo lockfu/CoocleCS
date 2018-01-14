@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def edit
     @user=User.find_by_id(params[:id])
+    puts @user.name + " uuuuuuuuuuuuuuuuu"
   end
 
   def update
