@@ -208,9 +208,9 @@ end
 
 3. 运行`rake test`,成功后会根目录的coverage下生成一个index.html文件，用浏览器打开能看到结果如下：
 
-  <img src="/lib/c6.png" width="700">  
+  <img src="/lib/pic/c6.png" width="700">  
 
-  <img src="/lib/c7.png" width="700">  
+  <img src="/lib/pic/c7.png" width="700">  
 
 
 
