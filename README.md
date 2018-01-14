@@ -1,66 +1,74 @@
-# CourseSelect [![Build Status](https://travis-ci.org/PENGZhaoqing/CourseSelect.svg?branch=master)](https://travis-ci.org/PENGZhaoqing/CourseSelect)
+# CoocleSelect
 
-### [中文教程1](http://blog.csdn.net/ppp8300885/article/details/52594839) [中文教程2](http://blog.csdn.net/ppp8300885/article/details/52601560) [中文教程3](http://blog.csdn.net/ppp8300885/article/details/52669749)
+### [环境安装](http://blog.csdn.net/ppp8300885/article/details/52594839)   [Rails指南](http://guides.rubyonrails.org/)
 
+* * *
+### 本系统是一个课程网站选择系统，可以用来作为学校的学生的选课系统来使用
 
-这个样本系统是基于国科大研究生课程 (高级软件工程) 开发的项目,目的是帮助入门者学习RoR (Ruby on Rails) 
+### 说明
 
-适合新学者的入手的第一个项目 ([演示Demo戳这里](https://courseselect.herokuapp.com/ ))，入门者可以在这个样本系统上增加更多的功能:
-
-* 处理选课冲突、控制选课人数
-* 统计选课学分，学位课等
-* 增加选课的开放、关闭功能
-* 自定义管理员后台
-* 基于OAuth的授权登陆
-* Excel格式的数据导入
-* 绑定用户邮箱（实现注册激活，忘记密码等）
-* 站内查找检索 （课程按分类查找，过滤等）
-
-### 目前功能：
-
-* 多角色登陆（学生，老师，管理员）
-* 学生动态选课，退课
-* 老师动态增加，删除课程
-* 老师对课程下的学生添加、修改成绩
-* 权限控制：老师和学生只能看到自己相关课程信息
-
-### 截图
-
-<img src="/lib/screenshot1.png" width="700">  
-
-<img src="/lib/screenshot2.png" width="700">
-
-<img src="/lib/screenshot3.png" width="700">   
-
-<img src="/lib/screenshot4.png" width="700">
-
-## 说明
-
-目前使用的库和数据库：
-
+* ruby版本：2.3.1
+* rails版本：4.x
+* 数据库 postgreSQL [安装指南](http://www.ruanyifeng.com/blog/2013/12/getting_started_with_postgresql.html)
 * 使用[Bootstrap](http://getbootstrap.com/)作为前端库
 * 使用[Rails_admin Gem](https://github.com/sferik/rails_admin)作为后台管理
-* 使用[Postgresql](http://postgresapp.com/)作为数据库
 
-使用前需要安装Bundler，Gem，Ruby，Rails等依赖环境。
+### 安装
 
-请根据本地系统下载安装[postgresql](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup)数据库，并运行`psql -h localhost`检查安装情况。
+在Ubuntu下运行以下命令
 
 
-## 安装
-
-在终端（MacOS或Linux）中执行以下代码
-
-```
-$ git clone https://github.com/PENGZhaoqing/CourseSelect
-$ cd CourseSelect
-$ bundle install
-$ rake db:migrate
-$ rake db:seed
-$ rails s 
-```
-
+* $ git clone https://github.com/lockfu/CoocleCS.git
+* $ cd CoocleCS
+* $ bundle install
+* $ rake db:migrate
+* $ rake db:seed
+* $ rails s 
+<br />
 在浏览器中输入`localhost:3000`访问主页
+
+
+### 请访问： http://207.246.121.99:3000/   来使用
+
+* * *
+
+### 本系统支持的功能：
+
+* 通知
+* 多角色登陆（学生，老师，管理员）
+* 学生根据学院进行选择课程
+* 学生批量选择、删除课程
+* 学生动态选课，退课
+* 选择课程是否为学位课
+* 学生选课冲突
+* 课程人数上限设置
+* 选择课程学分提示
+* 学生查看自己课表
+* 学生查看考试安排
+* 学生成绩单下载
+* 学生课程信息的查看
+* 老师动态增加，删除课程
+* 老师课程的开通
+* 老师安排考试信息
+* 老师对课程下的学生添加、修改成绩
+* 老师下载成绩单
+* 老师下载学生名单
+* 权限控制：老师和学生只能看到自己相关课程信息
+
+### 功能预览
+
+<img src="/lib/pic/c1.png" width="700">  
+
+<img src="/lib/pic/c2.png" width="700">  
+
+<img src="/lib/pic/c3.png" width="700">  
+
+<img src="/lib/pic/c4.png" width="700">  
+
+<img src="/lib/pic/c5.png" width="700">  
+
+
+
 
 ## 使用
 
@@ -86,30 +94,38 @@ $ rails s
 账号中数字都可以替换成2,3...等等
 
 
-## Heroku云部署
+## 部署到服务器
 
 项目可直接在Heroku上免费部署
 
-1.fork此项目到自己Github账号下
-
-2.创建Heroku账号以及Heroku app
-
-3.将Heroku app与自己Github下的fork的项目进行连接
-
-4.下载配置[Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)命令行工具
-
-5.运行`heroku login`在终端登陆，检查与heroku app的远程连接情况`git config --list | grep heroku`，若未检查到相应的app，请看[这里](http://stackoverflow.com/questions/5129598/how-to-link-a-folder-with-an-existing-heroku-app)
-
-6.运行部署，详情[请戳这里](https://devcenter.heroku.com/articles/getting-started-with-rails4#rails-asset-pipeline)
+1. 首先可以到阿里云或者其他地方购买一个服务器
+2. 安装前面的步骤 在服务器上安装环境
+3. git项目到服务器上
+4. 绑定项目到服务器上，发布地址访问
 
 
 ## 本地测试
 
-本项目包含了部分的测试（integration/fixture/model test），测试文件位于/test目录下。一键运行所有测试使用`rake test`：
+本项目包含了部分的测试（integration/fixture/model test），测试文件位于/test目录下。
+使用 rails new application_name 命令创建一个 Rails 项目时，Rails 会生成 test 目录。如果列出这个目录里的内容，你会看到下述目录和文件：
+<p>
+  <br />
+  $ ls -F test <br />
+  controllers/           helpers/               mailers/               system/                test_helper.rb <br/>
+  fixtures/              integration/           models/                application_system_test_case.rb
+</p>
+
+<p>
+  helpers 目录存放视图辅助方法的测试，mailers 目录存放邮件程序的测试，models 目录存放模型的测试，controllers 目录存放控制器的测试，integration 目录存放涉及多个控制器交互的测试。此外，还有一个目录用于存放邮件程序的测试，以及一个目录用于存放辅助方法的测试。
+
+system 目录存放系统测试，在浏览器中全面测试应用。系统测试模拟用户的交互，还能测试 JavaScript。系统测试源自 Capybara，在浏览器中测试应用。
+
+测试数据使用固件（fixture）组织，存放在 fixtures 目录中。
+
+
+</p>
 
 ```
-PENG-MacBook-Pro:IMS_sample PENG-mac$ rake test
-Run options: --seed 15794
 
 # Running:
 .........
@@ -197,38 +213,7 @@ end
   <img src="/lib/screenshot6.png" width="700">  
 
 
-## Travis CI 线上自动测试
 
-上述为本地测试，我们可以使用Travis CI来实现自动测试，首先申请一个Travis CI的账号，然后与自己的github连接起来，接着在自己项目根目录中增加一个新的文件`.travis.yml`如下，这个文件中指定了测试需要的ruby版本，数据库等配置以及一些测试前的脚本操作，当你的github发生更新后，Travis CI会自动触发测试（需要你在Travis CI中自己设置自动/手动触发），然后读取你的`.travis.yml`文件配置进行测试，其实也就是把本地测试拉到服务器上进行，测试成功后会在你的github项目给一个buliding pass的标签（见CourseSelect题目旁边），代表当前的代码是通过测试的
 
-```
-language: ruby
-
-rvm:
-  - 2.2
-
-env:
-  - DB=pgsql
-
-services:
-  - postgresql
-
-script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
-  - bundle exec rake
-
-before_script:
-  - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database courseselect_test;' -U postgres
-```
-
-## How to Contribute
-
-先fork此项目，在分支修改后，pull request到主分支
-
-提问请到issues里创建，欢迎contributor！
-
-如果觉得好，给项目点颗星吧～
 
 
