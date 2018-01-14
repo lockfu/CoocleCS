@@ -7,7 +7,7 @@ class CoursesControllerTest < ActionController::TestCase
 
   setup do
     @course = courses(:one)
-    @current_user = users(:teacher1)
+    @user = users(:student1)
     #@teaching_courses = courses(:one)
 
   end
@@ -57,7 +57,7 @@ class CoursesControllerTest < ActionController::TestCase
         exam_date: "2018-01-01",
         exam_time: "13:30",
         exam_place: "教一"
-      },current_user: @current_user
+      },current_user: @user
       assert_response :redirect
     end
 
@@ -124,10 +124,10 @@ class CoursesControllerTest < ActionController::TestCase
     assert_response :redirect
     end
 
-    # test "should get index" do
-    #   get :index,curpage: 1
-    #   assert_response :success
-    # end
+    test "should get index" do
+      get :index,curpage: 1,current_user: @user
+      assert_response :success
+    end
 
 
     test "should get showstudents" do

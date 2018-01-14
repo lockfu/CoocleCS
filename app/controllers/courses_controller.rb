@@ -3,9 +3,9 @@ require "pageinfo"
 require 'spreadsheet'
 class CoursesController < ApplicationController
 
-  before_action :student_logged_in, only: [:select, :quit, :list]
-  before_action :teacher_logged_in, only: [:new, :create, :edit, :destroy, :update, :open, :close]#add open by qiao
-  before_action :logged_in, only: :index
+  # before_action :student_logged_in, only: [:select, :quit, :list]
+  # before_action :teacher_logged_in, only: [:new, :create, :edit, :destroy, :update, :open, :close]#add open by qiao
+  # before_action :logged_in, only: :index
   # Spreadsheet.client_encoding = "utf-8"
   #-------------------------for teachers----------------------
 
@@ -371,6 +371,7 @@ class CoursesController < ApplicationController
       else
         curpage = 1
       end
+
       cuid = current_user.id
       grades = Grade.where(:user_id => "#{cuid}")
       tep = []
