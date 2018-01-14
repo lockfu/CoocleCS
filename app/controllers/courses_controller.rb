@@ -3,9 +3,9 @@ require "pageinfo"
 require 'spreadsheet'
 class CoursesController < ApplicationController
 
-  # before_action :student_logged_in, only: [:select, :quit, :list]
-  # before_action :teacher_logged_in, only: [:new, :create, :edit, :destroy, :update, :open, :close]#add open by qiao
-  # before_action :logged_in, only: :index
+  before_action :student_logged_in, only: [:select, :quit, :list]
+  before_action :teacher_logged_in, only: [:new, :create, :edit, :destroy, :update, :open, :close]#add open by qiao
+  before_action :logged_in, only: :index
   # Spreadsheet.client_encoding = "utf-8"
   #-------------------------for teachers----------------------
 
@@ -572,26 +572,26 @@ begin
 
   #=======================xml define=========================
 
-
-  def xls_content_for(objs)
-    xls_report = StringIO.new
-    book = Spreadsheet::Workbook.new
-    sheet1 = book.create_worksheet :name => "Students"
-    blue = Spreadsheet::Format.new :color => :blue,:weight => :bold, :size => 13
-    sheet1.row(0).default_format = blue
-
-    sheet1.row(0).concat %w{  id  num name major depart }
-    crow = 1
-    objs.each do |obj|
-      sheet1[crow,0] = crow
-      sheet1[crow,1] = obj.num
-      sheet1[crow,2] = obj.name
-      sheet1[crow,3] = obj.major
-      sheet1[crow,4] = obj.department
-      crow += 1
-    end
-    book.write xls_report
-    xls_report.string
-  end
+  #
+  # def xls_content_for(objs)
+  #   xls_report = StringIO.new
+  #   book = Spreadsheet::Workbook.new
+  #   sheet1 = book.create_worksheet :name => "Students"
+  #   blue = Spreadsheet::Format.new :color => :blue,:weight => :bold, :size => 13
+  #   sheet1.row(0).default_format = blue
+  #
+  #   sheet1.row(0).concat %w{  id  num name major depart }
+  #   crow = 1
+  #   objs.each do |obj|
+  #     sheet1[crow,0] = crow
+  #     sheet1[crow,1] = obj.num
+  #     sheet1[crow,2] = obj.name
+  #     sheet1[crow,3] = obj.major
+  #     sheet1[crow,4] = obj.department
+  #     crow += 1
+  #   end
+  #   book.write xls_report
+  #   xls_report.string
+  # end
 
 end
